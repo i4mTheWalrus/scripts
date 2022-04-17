@@ -1,11 +1,11 @@
 #!/usr/bin/bash
 
 # Get the first 3 octets of the network ip
-ifconfig | grep "broadcast" | cut -d " " -f 10 | cut -d "." -f 1,2,3 | awk 'FNR == 1' > octets.txt
+ifconfig | grep "broadcast" | cut -d " " -f 10 | cut -d "." -f 1,2,3 | awk 'FNR == 1' > "/usr/local/bin/octets.txt"
 
 # Set variable to have value of octets.txt
-OCTETS=$(cat octets.txt)
-IP_LIST="ip_list.txt"
+OCTETS=$(cat "/usr/local/bin/octets.txt")
+IP_LIST="/usr/local/bin/ip_list.txt"
 
 # Create a new .txt file
 echo "" > "$IP_LIST"
